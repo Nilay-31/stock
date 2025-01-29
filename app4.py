@@ -6,7 +6,7 @@ st.title("SARIMA Model Deployment")
 
 try:
     # Load saved SARIMA model
-    with open('sarima_model.pkl', 'rb') as f:
+    with open('sarima_model.pkl', 'wb') as f:
         loaded_model = pickle.load(f)  
 
     st.success("SARIMA model loaded successfully!")
