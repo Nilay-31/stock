@@ -12,9 +12,9 @@ if st.button("Load Saved SARIMA Model"):
         st.success("Model loaded successfully!")
         
         # Forecast
-        steps = st.slider("Forecast Steps", min_value=1, max_value=100, value=30)
-        forecast = loaded_model.forecast(steps=steps)
-
+      loaded_model = load(open('sarima_model.pkl', 'rb')) 
+        fct = pd.DataFrame(loaded_model.forecast(30))
+        fct
         # Convert forecast to DataFrame for Streamlit line chart
         forecast_df = pd.DataFrame({'Forecast': forecast})
         
