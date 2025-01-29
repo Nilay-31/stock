@@ -4,18 +4,22 @@ import pandas as pd
 
 st.title("SARIMA Model Deployment")
 
-# Load saved SARIMA model
-with open('sarima_model.pkl', 'rb') as f:
-    loaded_model = pickle.load(f)  # Ensure correct indentation
+try:
+    # Load saved SARIMA model
+    with open('sarima_model.pkl', 'rb') as f:
+        loaded_model = pickle.load(f)  
 
-print("SARIMA model loaded successfully!")
+    st.success("SARIMA model loaded successfully!")
 
-# Forecasting example
-steps = 30  # Number of future steps to predict
-forecast = loaded_model.forecast(steps=steps)
+    # Forecasting example
+    steps = st.slider("Forecast Steps", min_value=1, max_value=100, value=30)
+    forecast = loaded_model.forecast(steps=steps)
 
-print("Forecasted values:", forecast)
-        # Display forecast
-        st.line_chart(forecast_df)
-    except Exception as e:
-        st.error(f"Error loading model: {e}")
+    # Convert forecast to DataFrame for Streamlit visualization
+    forecast_df = pd.DataFrame({'Forecast': forecast})
+
+    # Display forecast using Streamlit's built-in chart
+    st.line_chart(forecast_df)
+
+except Exception as e:
+    st.error(f"Error loading model: {e}")
