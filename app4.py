@@ -1,7 +1,7 @@
 import streamlit as st
 import pickle
 import pandas as pd
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 st.title("SARIMA Model Deployment")
 
@@ -17,10 +17,10 @@ if st.button("Load Saved SARIMA Model"):
         forecast = loaded_model.forecast(steps=steps)
 
         # Plot forecast
-        plt.figure(figsize=(10, 6))
-        plt.plot(forecast, label="Forecast", color="blue")
-        plt.title("SARIMA Forecast")
-        plt.legend()
-        st.pyplot(plt)
+        #plt.figure(figsize=(10, 6))
+        #plt.plot(forecast, label="Forecast", color="blue")
+        #plt.title("SARIMA Forecast")
+        #plt.legend()
+        #st.pyplot(plt)
     except Exception as e:
         st.error(f"Error loading model: {e}")
