@@ -10,7 +10,7 @@ st.title('Model Deployment: SARIMA MODEL')
 st.subheader('Apple Dataset')
 
 # [2] Load Dataset
-df = pd.read_csv('/content/AAPL.csv', parse_dates=['Date'], index_col='Date')
+df = pd.read_csv('Nilay-31/stockt/AAPL.csv', parse_dates=['Date'], index_col='Date')
 df["Date"] = pd.to_datetime(df["Date"])
 df.set_index("Date", inplace=True)
 
