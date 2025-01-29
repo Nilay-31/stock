@@ -8,7 +8,7 @@ st.title("SARIMA Model Deployment")
 # Load saved SARIMA model
 if st.button("Load Saved SARIMA Model"):
     try:
-        with open('sarima_model.pkl', 'rb') as f:
+        with open(''pickle_file.sav', 'rb') as f:
             loaded_model = pickle.load(f)
         st.success("Model loaded successfully!")
         
